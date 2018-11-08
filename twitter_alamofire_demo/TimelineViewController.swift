@@ -75,4 +75,15 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailedView" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let tweet = self.posts[indexPath.row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.tweet = tweet
+            }
+        }
+    }
 }

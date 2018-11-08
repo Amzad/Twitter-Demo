@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else if (User.current != nil) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let homeTimelineViewController = storyboard.instantiateViewController(withIdentifier: "TimelineViewController")
-            window?.rootViewController = homeTimelineViewController
+            let navigationController = UINavigationController(rootViewController: homeTimelineViewController)
+            window?.rootViewController = navigationController
             
             
         }
